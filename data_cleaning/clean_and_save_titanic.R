@@ -68,6 +68,30 @@ tix_n$Ticket_party_size <- as.integer(tix_n$Ticket_party_size)
 df <- merge(df, tix_n, by = "Ticket", all.x = TRUE)
 df$Fare_per_person <- df$Fare / df$Ticket_party_size
 
+# --- SES_band: ordinal socioeconomic proxy (NOT annual income in currency) ---
+# Within each ticket class (1/2/3), passengers are sorted by Fare_per_person then
+# PassengerId; the lowest third of rows get Low, middle third Medium, top third High.
+# Interpretation: within-class relative fare share; ties broken deterministically by ID.
+df$SES_band <- NA_character_
+for (pc in c(1L, 2L, 3L)) {
+  idx <- which(df$Pclass == pc)
+  n <- length(idx)
+  if (n == 0L) next
+  ord <- order(df$Fare_per_person[idx], df$PassengerId[idx], na.last = TRUE)
+  lab <- rep(NA_character_, n)
+  a <- floor(n / 3L)
+  b <- floor(2L * n / 3L)
+  if (a < 1L) {
+    lab[] <- "Medium"
+  } else {
+    lab[ord[seq_len(a)]] <- "Low"
+    if (b > a) lab[ord[(a + 1L):b]] <- "Medium"
+    if (b < n) lab[ord[(b + 1L):n]] <- "High"
+  }
+  df$SES_band[idx] <- lab
+}
+df$SES_band <- factor(df$SES_band, levels = c("Low", "Medium", "High"), ordered = TRUE)
+
 # --- Cabin deck (first letter) or Unknown ---
 deck <- substr(df$Cabin, 1L, 1L)
 deck[is.na(df$Cabin) | df$Cabin == ""] <- "U"

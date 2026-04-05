@@ -17,7 +17,7 @@ The raw Titanic file is almost complete, but a few passengers are missing **age*
 
 **Fare.** Fares are imputed the same way in spirit: **class median first**, then **global median** if anything remains missing. In this dataset fare is usually present; the rule still guarantees no missing fare in the output file.
 
-**Variables we derive (not in the raw CSV).** We extract **Title** from **Name** so you can describe social role (Mr, Mrs, Miss, Master, etc.) without manual coding. **FamilySize** counts the passenger plus siblings/spouses and parents/children aboard; **IsSolo** flags people travelling alone. **Ticket_party_size** counts how many rows share the same **Ticket** (useful when one fare paid for several people); **Fare_per_person** divides total fare by that count so shared tickets are comparable to solo tickets. **Deck** takes the first letter of **Cabin** when a cabin is recorded, and uses **U** (“unknown”) when cabin is missing, so you always have a deck-like field for plots and tables even though most cabin strings are empty.
+**Variables we derive (not in the raw CSV).** We extract **Title** from **Name** so you can describe social role (Mr, Mrs, Miss, Master, etc.) without manual coding. **FamilySize** counts the passenger plus siblings/spouses and parents/children aboard; **IsSolo** flags people travelling alone. **Ticket_party_size** counts how many rows share the same **Ticket** (useful when one fare paid for several people); **Fare_per_person** divides total fare by that count so shared tickets are comparable to solo tickets. **SES_band** (**Low** / **Medium** / **High**) is an **ordinal proxy for relative spending within the same ticket class**: within each **Pclass**, passengers are ordered by **Fare_per_person** (ties broken by **PassengerId**), then split into three as-equal-as-possible groups. It is **not** annual income or a currency amount—only a transparent rule-based label for “lower vs higher fare share among peers in the same class.” **Deck** takes the first letter of **Cabin** when a cabin is recorded, and uses **U** (“unknown”) when cabin is missing, so you always have a deck-like field for plots and tables even though most cabin strings are empty.
 
 **What we leave alone.** We do **not** invent cabin codes. **Cabin** in the CSV can still be blank; **Deck = U** tells you “no cabin on file.” **Survived**, **Pclass**, **Sex**, and **Embarked** are set to sensible types in R before export so downstream scripts treat class as ordered and categories as factors.
 
@@ -54,6 +54,7 @@ The raw Titanic file is almost complete, but a few passengers are missing **age*
 | **IsSolo** | `1` if `FamilySize == 1`, else `0`. |
 | **Ticket_party_size** | Number of passengers sharing the same **`Ticket`**. |
 | **Fare_per_person** | `Fare / Ticket_party_size`. |
+| **SES_band** | Within each **Pclass**, **Low** / **Medium** / **High** by **Fare_per_person** tertile groups (tie-break **PassengerId**); **not** literal income. |
 | **Deck** | First character of **`Cabin`**; missing/empty cabin → **`U`** (Unknown). |
 | **Types (in R before export)** | `Survived` integer 0/1; `Sex` / `Embarked` / ordered `Pclass` as factors in the cleaning script’s in-memory object. The CSV stores standard columns for interoperability. |
 
@@ -69,7 +70,7 @@ This section documents the **file your group submits or cites** as the analytic 
 |------|--------|
 | **Path** | `data/titanic_cleaned.csv` |
 | **Rows** | 891 (one per passenger; same as raw) |
-| **Columns** | 18 |
+| **Columns** | 19 |
 
 ### Column list (order in CSV)
 
@@ -92,7 +93,8 @@ This section documents the **file your group submits or cites** as the analytic 
 | 15 | `IsSolo` | 1 if travelling alone (`FamilySize == 1`), else 0 |
 | 16 | `Ticket_party_size` | Count of passengers on same `Ticket` |
 | 17 | `Fare_per_person` | `Fare / Ticket_party_size` |
-| 18 | `Deck` | First letter of cabin or `U` if unknown |
+| 18 | `SES_band` | Ordered **Low** < **Medium** < **High** (within-class **Fare_per_person** groups; not income) |
+| 19 | `Deck` | First letter of cabin or `U` if unknown |
 
 ### Missingness: raw vs cleaned
 

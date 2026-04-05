@@ -25,5 +25,8 @@ load_titanic_clean <- function() {
   x$Sex <- factor(x$Sex, levels = c("male", "female"))
   x$Embarked <- factor(x$Embarked)
   x$Survived <- as.integer(x$Survived)
+  if ("SES_band" %in% names(x)) {
+    x$SES_band <- factor(x$SES_band, levels = c("Low", "Medium", "High"), ordered = TRUE)
+  }
   x
 }

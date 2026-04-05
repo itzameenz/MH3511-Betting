@@ -31,6 +31,7 @@ Each **`.md` file** matches one **`.R` script** (same base name). Besides the ta
 | `R/sec03_02_05__…` | §3.2.5 | Family size / solo EDA |
 | `R/sec03_02_06__…` | §3.2.6 | Embarked EDA |
 | `R/sec03_02_07__…` | §3.2.7 | Title / deck / party size EDA |
+| `R/sec03_02_08__…` | §3.2.8 | SES_band vs survival (faceted by class) |
 | `R/sec03_03__…` | §3.3 | Row/column count + `str()` |
 | `R/sec04_01__…` | §4.1 | Correlation matrix + Age–Fare scatter |
 | `R/sec04_02_01__…` | §4.2.1 | χ² Pclass; Wilcoxon fare; fare boxplots |
@@ -39,6 +40,7 @@ Each **`.md` file** matches one **`.R` script** (same base name). Besides the ta
 | `R/sec04_02_04__…` | §4.2.4 | χ² family size (simulated *p*) & solo |
 | `R/sec04_02_05__…` | §4.2.5 | χ² embarked; dodged count bar |
 | `R/sec04_02_06__…` | §4.2.6 | Fisher same-ticket concordance; party mix |
+| `R/sec04_02_07__…` | §4.2.7 | χ² SES_band × Survived; count bar |
 | `R/sec04_03__…` | §4.3 | Multivariable logistic + OR forest plot |
 | `R/sec04_04__…` | §4.4 | 80/20 split + confusion matrix + accuracy |
 | `R/sec99__…` | Appendix | Paths + `sessionInfo()` |

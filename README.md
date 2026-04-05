@@ -39,6 +39,7 @@ A full run writes PNGs under **`output/figures/`** and can log console output to
 
 ```sh
 Rscript tests/test_stratified_split.R
+Rscript tests/test_ses_band.R
 ```
 
 ## Documentation

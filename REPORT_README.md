@@ -60,7 +60,8 @@ This project addresses the following questions:
 5. **Embarkation:** Is **port of embarkation** associated with survival (interpreted cautiously given confounding with class)?  
 6. **Travel parties:** For passengers sharing the same **ticket** (a proxy for a joint travel party), is one individual’s survival associated with another party member’s survival?  
 7. **Multivariable synthesis:** After mutual adjustment, which factors remain associated with survival (odds ratios from logistic regression)?  
-8. **Prediction:** How well does a logistic model predict survival on a **held-out** test sample?
+8. **Prediction:** How well does a logistic model predict survival on a **held-out** test sample?  
+9. **SES proxy:** Does the derived **SES_band** (within-class **Fare_per_person** groups) show association with survival?
 
 ### 1.2 Methods overview
 
@@ -117,9 +118,10 @@ All cleaning is implemented in **`data_cleaning/clean_and_save_titanic.R`** and 
 5. Derive **Title** from **Name** (substring between the comma and the first full stop).  
 6. Compute **FamilySize** = `SibSp + Parch + 1`, and **IsSolo** = 1 if `FamilySize == 1`, else 0.  
 7. Compute **Ticket_party_size** = number of passengers sharing the same **Ticket**; **Fare_per_person** = `Fare / Ticket_party_size`.  
-8. Derive **Deck** = first character of **Cabin**; if cabin missing or empty, set **Deck** = **U** (unknown).  
-9. Set variable types for analysis (`Survived` integer; `Sex`, `Embarked`, `Pclass` as factors; `Pclass` ordered).  
-10. Sort rows by **`PassengerId`** and write **`data/titanic_cleaned.csv`**.
+8. Derive **SES_band** (**Low** / **Medium** / **High**): within each **Pclass**, sort by **Fare_per_person** then **PassengerId**; assign the lowest third **Low**, middle third **Medium**, upper third **High** (proxy for within-class fare share; **not** currency income).  
+9. Derive **Deck** = first character of **Cabin**; if cabin missing or empty, set **Deck** = **U** (unknown).  
+10. Set variable types for analysis (`Survived` integer; `Sex`, `Embarked`, `Pclass` as factors; `Pclass` ordered).  
+11. Sort rows by **`PassengerId`** and write **`data/titanic_cleaned.csv`**.
 
 > **Readable narrative**  
 > For a fuller **word explanation** of why these rules are used (embarked mode, median imputation, derived fields, what is left missing), see **`data_cleaning/README.md`** → section **What the cleaning does (in plain language)**.
@@ -142,10 +144,10 @@ After cleaning, **Age**, **Fare**, and **Embarked** contain **no missing values*
 | | |
 |:---|:---|
 | **Output file** | `data/titanic_cleaned.csv` |
-| **Dimensions** | **891 rows × 18 columns** (same passengers as raw; new derived columns added). |
+| **Dimensions** | **891 rows × 19 columns** (same passengers as raw; new derived columns added). |
 
 **Column list (cleaned file):**  
-`Ticket`, `PassengerId`, `Survived`, `Pclass`, `Name`, `Sex`, `Age`, `SibSp`, `Parch`, `Fare`, `Cabin`, `Embarked`, `Title`, `FamilySize`, `IsSolo`, `Ticket_party_size`, `Fare_per_person`, `Deck`.
+`Ticket`, `PassengerId`, `Survived`, `Pclass`, `Name`, `Sex`, `Age`, `SibSp`, `Parch`, `Fare`, `Cabin`, `Embarked`, `Title`, `FamilySize`, `IsSolo`, `Ticket_party_size`, `Fare_per_person`, `SES_band`, `Deck`.
 
 ### 3.0.3 Cleaned data output — sample rows (first 10 passengers)
 
@@ -200,16 +202,17 @@ For each subsection, we examined tabulations, appropriate plots, and (where note
 | **3.2.5** | Family size and solo travel | `output/figures/fig__sec03_02_05__family_size_survival.png` | `R/sec03_02_05__eda_family_size_sibsp_parch_solo_vs_group.R` |
 | **3.2.6** | Embarked | `output/figures/fig__sec03_02_06__embarked_survival.png` | `R/sec03_02_06__eda_embarked_port_barplots.R` |
 | **3.2.7** | Title, deck, ticket party size | `output/figures/fig__sec03_02_07__title_survival.png` | `R/sec03_02_07__eda_ticket_cabin_derived_title_deck_party_size.R` |
+| **3.2.8** | **SES_band** (within-class fare proxy) | `output/figures/fig__sec03_02_08__ses_band_survival_by_class.png` | `R/sec03_02_08__eda_ses_band_survival.R` |
 
 *Fare is right-skewed; **Fare_per_person** adjusts for shared tickets.*
 
-**Figure numbering (same as before):** **[Figure 3.2.1]** class; **[Figure 3.2.2]** sex; **[Figures 3.2.3a–b]** age histogram and boxplot; **[Figures 3.2.4a–b]** fare histogram and fare-per-person boxplot; **[Figure 3.2.5]** family size; **[Figure 3.2.6]** embarked; **[Figure 3.2.7]** title (and related derived fields in that script).
+**Figure numbering (same as before):** **[Figure 3.2.1]** class; **[Figure 3.2.2]** sex; **[Figures 3.2.3a–b]** age histogram and boxplot; **[Figures 3.2.4a–b]** fare histogram and fare-per-person boxplot; **[Figure 3.2.5]** family size; **[Figure 3.2.6]** embarked; **[Figure 3.2.7]** title (and related derived fields in that script); **[Figure 3.2.8]** **SES_band** vs survival **faceted by class**.
 
 ---
 
 ### 3.3 Final dataset for analysis
 
-The **final analytic dataset** is **`titanic_cleaned.csv`**, **891 × 18**, as listed in §3.0.2–3.0.3. All subsequent models and tests read this file via **`R/bootstrap_paths.R`** and **`load_titanic_clean()`**.
+The **final analytic dataset** is **`titanic_cleaned.csv`**, **891 × 19**, as listed in §3.0.2–3.0.3. All subsequent models and tests read this file via **`R/bootstrap_paths.R`** and **`load_titanic_clean()`**.
 
 ---
 
@@ -227,6 +230,7 @@ Formal inference requires stating what each procedure assumes and what we checke
 | **Binomial test** (§4.2) | Survivors are exchangeable for the purpose of estimating one proportion. | **95% CI** for proportion male among survivors. | Conditions on surviving; not a marginal population proportion. |
 | **Logistic regression** (§4.3) | Independent rows; **logit** link; approximate **linearity of log-odds** in continuous predictors; no **perfect separation**. | **Class** and **Fare** are correlated (Table 4.1); **Fare** is not significant when both are in the model—consistent with **multicollinearity**/overlap. Residual deviance reported in R output. | We do not present Hosmer–Lemeshow or component-residual plots in the pipeline; interpret linearity in **Age** as an approximation. |
 | **Train/test holdout** (§4.4) | Test set is **representative**; same data-generating process as train. | **Stratified** sampling on **Survived** keeps similar outcome prevalence in train and test; **set.seed(3511)**. | Single split; **no** cross-validation; threshold **0.5** is arbitrary. |
+| **SES_band × Survived** (§4.2.7) | χ² treats **SES_band** as nominal categories; independence of rows. | **SES_band** is **defined** from **Pclass** + **Fare_per_person**; χ² tests association with survival **after** that construction. | **Not** income; **overlaps** information with class and fare—interpret as a **descriptive** grouping check, not a separate causal factor. |
 
 ---
 
@@ -271,6 +275,7 @@ For each test we state **H₀** / **H₁**, report the **test statistic** (where
 | 4.2.4 | Family size & solo | `R/sec04_02_04__statistical_tests_family_size_solo_travel_survival.R` | `fig__sec04_02_04__solo_survival.png` |
 | 4.2.5 | Embarked vs survival | `R/sec04_02_05__statistical_tests_embarked_port_and_survival.R` | `fig__sec04_02_05__embarked_counts.png` |
 | 4.2.6 | Same-ticket concordance | `R/sec04_02_06__statistical_tests_same_ticket_party_concordance.R` | `fig__sec04_02_06__ticket_party_mix.png` |
+| 4.2.7 | SES_band vs survival | `R/sec04_02_07__statistical_tests_ses_band_and_survival.R` | `fig__sec04_02_07__ses_band_survival_counts.png` |
 
 #### 4.2.1 Passenger class and fare vs survival
 
@@ -301,6 +306,15 @@ Among passengers on **multi-passenger tickets**, cross-tab **Self survived × Ot
 
 > **Remark — FamilySize × Survived**  
 > Monte Carlo χ² is used because some **expected counts** in the full **FamilySize × Survived** table are small.
+
+#### 4.2.7 SES_band vs survival
+
+**SES_band** is an **ordinal proxy**: within each **Pclass**, passengers are grouped into **Low** / **Medium** / **High** by **Fare_per_person** (equal-sized groups; ties broken by **PassengerId**). It does **not** represent measured income.
+
+- **SES_band × Survived (χ²):** H₀: no association. Pearson χ² = **1.28**, df = **2**, *p* = **0.527** (from `R/sec04_02_07__statistical_tests_ses_band_and_survival.R`; see **`output/analysis_console_log.txt`**). **Do not reject H₀** at α = 0.05: after **Pclass** is fixed in the construction, this **marginal** three-way split does not add detectable association with survival in the full sample.  
+- **Contingency (counts):** Low 190 died / 106 survived; Medium 178 / 119; High 181 / 117.  
+- **Figure:** dodged counts in **`output/figures/fig__sec04_02_07__ses_band_survival_counts.png`**; within-class shares in **`fig__sec03_02_08__ses_band_survival_by_class.png`**.  
+- **Interpretation:** **Pclass** and **raw Fare** already capture much of the socioeconomic gradient; **SES_band** is a **redundant coarse summary** here—useful as a **transparent proxy** in the report, not as proof of “income” effects.
 
 ---
 
@@ -374,6 +388,7 @@ This report examined survival among Titanic passengers using transparent cleanin
 | 6 | Same-ticket concordance | **Fisher** exact *p* < 10⁻¹⁵; **OR** ≈ 9.1 on the multi-ticket subset. |
 | 7 | Multivariable synthesis | **Female** OR ≈ **12.8**; **class** linear contrast OR ≈ **0.18** per ordered step; **age** OR **0.965**/year; **Fare** not significant adjusted for class. |
 | 8 | Prediction | **Stratified** 80/20 holdout: **accuracy 0.77**, **sensitivity 0.70**, **specificity 0.81** (Table 4.3). |
+| 9 | SES proxy (**SES_band**) | **χ²** §4.2.7: χ² = **1.28**, df = 2, *p* = **0.53** → **no** significant association **marginally**; overlaps **Pclass**/**Fare**; label is a **transparent rule**, not income. |
 
 Overall, results align with historical narratives (**women** and **higher class** fare better in this manifest) while illustrating statistical nuance: **marginal** age patterns can differ from **adjusted** age effects, and **fare** overlaps **class** in a multivariable model. The **predictive** exercise shows **moderate** test performance and underscores that **explanatory** strength (large ORs) and **classification accuracy** need not match. Future work could add **cross-validated AUC**, **alternative thresholds**, or **interaction** terms (e.g. sex × class) if the course permits.
 
