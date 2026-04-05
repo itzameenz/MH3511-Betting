@@ -1,0 +1,247 @@
+
+     0      1 
+0.6162 0.3838 
+
+  1   2   3 
+216 184 491 
+   
+            0         1
+  1 0.3703704 0.6296296
+  2 0.5271739 0.4728261
+  3 0.7576375 0.2423625
+
+  male female 
+   577    314 
+        
+                 0         1
+  male   0.8110919 0.1889081
+  female 0.2579618 0.7420382
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.42   21.50   26.00   29.11   36.00   80.00 
+NA count Age: 0 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    7.91   14.45   32.20   31.00  512.33 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   7.763   8.850  17.789  24.288 221.779 
+     SibSp           Parch          FamilySize         IsSolo      
+ Min.   :0.000   Min.   :0.0000   Min.   : 1.000   Min.   :0.0000  
+ 1st Qu.:0.000   1st Qu.:0.0000   1st Qu.: 1.000   1st Qu.:0.0000  
+ Median :0.000   Median :0.0000   Median : 1.000   Median :1.0000  
+ Mean   :0.523   Mean   :0.3816   Mean   : 1.905   Mean   :0.6027  
+ 3rd Qu.:1.000   3rd Qu.:0.0000   3rd Qu.: 2.000   3rd Qu.:1.0000  
+ Max.   :8.000   Max.   :6.0000   Max.   :11.000   Max.   :1.0000  
+   
+            0         1
+  0 0.4943503 0.5056497
+  1 0.6964618 0.3035382
+
+  C   Q   S 
+168  77 646 
+   
+            0         1
+  C 0.4464286 0.5535714
+  Q 0.6103896 0.3896104
+  S 0.6609907 0.3390093
+
+      Mr     Miss      Mrs   Master       Dr      Rev      Col    Major 
+     517      182      125       40        7        6        2        2 
+    Mlle     Capt      Don Jonkheer     Lady      Mme       Ms 
+       2        1        1        1        1        1        1 
+
+  A   B   C   D   E   F   G   T   U 
+ 15  47  59  33  32  13   4   1 687 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   1.000   1.788   2.000   7.000 
+Rows: 891   Columns: 18 
+ [1] "Ticket"            "PassengerId"       "Survived"         
+ [4] "Pclass"            "Name"              "Sex"              
+ [7] "Age"               "SibSp"             "Parch"            
+[10] "Fare"              "Cabin"             "Embarked"         
+[13] "Title"             "FamilySize"        "IsSolo"           
+[16] "Ticket_party_size" "Fare_per_person"   "Deck"             
+'data.frame':	891 obs. of  18 variables:
+ $ Ticket           : chr  "A/5 21171" "PC 17599" ...
+ $ PassengerId      : int  1 2 3 4 5 ...
+ $ Survived         : int  0 1 1 1 0 ...
+ $ Pclass           : Ord.factor w/ 3 levels "1"<"2"<"3": 3 1 3 1 3 ...
+ $ Name             : chr  "Braund, Mr. Owen Harris" "Cumings, Mrs. John Bradley (Florence Briggs Thayer)" ...
+ $ Sex              : Factor w/ 2 levels "male","female": 1 2 2 2 1 ...
+ $ Age              : num  22 38 26 35 35 ...
+ $ SibSp            : int  1 1 0 1 0 ...
+ $ Parch            : int  0 0 0 0 0 ...
+ $ Fare             : num  7.25 71.28 ...
+ $ Cabin            : chr  NA "C85" ...
+ $ Embarked         : Factor w/ 3 levels "C","Q","S": 3 1 3 3 3 ...
+ $ Title            : chr  "Mr" "Mrs" ...
+ $ FamilySize       : int  2 2 1 2 1 ...
+ $ IsSolo           : int  0 0 1 0 1 ...
+ $ Ticket_party_size: int  1 1 1 2 1 ...
+ $ Fare_per_person  : num  7.25 71.28 ...
+ $ Deck             : chr  "U" "C" ...
+                     Age  Fare  SibSp  Parch FamilySize Fare_per_person
+Age                1.000 0.123 -0.250 -0.176     -0.258           0.253
+Fare               0.123 1.000  0.160  0.216      0.217           0.839
+SibSp             -0.250 0.160  1.000  0.415      0.891          -0.012
+Parch             -0.176 0.216  0.415  1.000      0.783           0.060
+FamilySize        -0.258 0.217  0.891  0.783      1.000           0.022
+Fare_per_person    0.253 0.839 -0.012  0.060      0.022           1.000
+Ticket_party_size -0.221 0.346  0.662  0.593      0.748           0.014
+Survived          -0.060 0.257 -0.035  0.082      0.017           0.255
+                  Ticket_party_size Survived
+Age                          -0.221   -0.060
+Fare                          0.346    0.257
+SibSp                         0.662   -0.035
+Parch                         0.593    0.082
+FamilySize                    0.748    0.017
+Fare_per_person               0.014    0.255
+Ticket_party_size             1.000    0.038
+Survived                      0.038    1.000
+
+	Pearson's Chi-squared test
+
+data:  table(d$Pclass, d$Survived)
+X-squared = 102.89, df = 2, p-value < 2.2e-16
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  Fare by factor(Survived)
+W = 57807, p-value < 2.2e-16
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  table(d$Sex, d$Survived)
+X-squared = 260.72, df = 1, p-value < 2.2e-16
+
+Among survivors: proportion male = 0.3187 
+
+	Exact binomial test
+
+data:  sum(d$Sex[surv] == "male") and sum(surv)
+number of successes = 109, number of trials = 342, p-value = 1.76e-11
+alternative hypothesis: true probability of success is not equal to 0.5
+95 percent confidence interval:
+ 0.2696252 0.3709751
+sample estimates:
+probability of success 
+             0.3187135 
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  Age by factor(Survived)
+W = 98172, p-value = 0.25
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Pearson's Chi-squared test with simulated p-value (based on 10000
+	replicates)
+
+data:  tab_fs
+X-squared = 80.672, df = NA, p-value = 9.999e-05
+
+
+	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  table(d$IsSolo, d$Survived)
+X-squared = 36.001, df = 1, p-value = 1.973e-09
+
+
+	Pearson's Chi-squared test
+
+data:  table(d$Embarked, d$Survived)
+X-squared = 25.964, df = 2, p-value = 2.301e-06
+
+    Other
+Self   0   1
+   0 110  55
+   1  32 147
+
+	Fisher's Exact Test for Count Data
+
+data:  tab
+p-value < 2.2e-16
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+  5.414916 15.681937
+sample estimates:
+odds ratio 
+  9.116671 
+
+party_pattern
+    all_died all_survived        mixed 
+          37           48           49 
+
+Call:
+stats::glm(formula = Survived ~ Pclass + Sex + Age + Fare + Embarked, 
+    family = stats::binomial(), data = d)
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.273885   0.336509   0.814   0.4157    
+Pclass.L    -1.729346   0.214513  -8.062 7.52e-16 ***
+Pclass.Q    -0.131677   0.180564  -0.729   0.4658    
+Sexfemale    2.552790   0.189306  13.485  < 2e-16 ***
+Age         -0.036068   0.007746  -4.657 3.22e-06 ***
+Fare        -0.000144   0.002139  -0.067   0.9464    
+EmbarkedQ   -0.072693   0.371580  -0.196   0.8449    
+EmbarkedS   -0.516942   0.236391  -2.187   0.0288 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1186.66  on 890  degrees of freedom
+Residual deviance:  795.58  on 883  degrees of freedom
+AIC: 811.58
+
+Number of Fisher Scoring iterations: 5
+
+                 OR     lo      hi
+(Intercept)  1.3151 0.6800  2.5432
+Pclass.L     0.1774 0.1165  0.2701
+Pclass.Q     0.8766 0.6153  1.2488
+Sexfemale   12.8429 8.8619 18.6123
+Age          0.9646 0.9500  0.9793
+Fare         0.9999 0.9957  1.0041
+EmbarkedQ    0.9299 0.4489  1.9263
+EmbarkedS    0.5963 0.3752  0.9478
+Train survival rate: 0.3834 | Test survival rate: 0.3855 
+      Predicted
+Actual  0  1
+     0 89 21
+     1 21 48
+Accuracy (0.5 threshold): 0.7654 
+Sensitivity (recall, actual survived): 0.6957 
+Specificity (actual not survived): 0.8091 
+Clean data file: C:/Users/siddh/Downloads/MH3511-Titanic--main/data/titanic_cleaned.csv 
+Figure output dir: C:/Users/siddh/Downloads/MH3511-Titanic--main/output/figures 
+
+R version 4.5.3 (2026-03-11 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26200)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=English_India.utf8  LC_CTYPE=English_India.utf8   
+[3] LC_MONETARY=English_India.utf8 LC_NUMERIC=C                  
+[5] LC_TIME=English_India.utf8    
+
+time zone: Asia/Singapore
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] ggplot2_4.0.2
+
+loaded via a namespace (and not attached):
+ [1] labeling_0.4.3     scales_1.4.0       compiler_4.5.3     R6_2.6.1          
+ [5] cli_3.6.5          tools_4.5.3        withr_3.0.2        RColorBrewer_1.1-3
+ [9] glue_1.8.0         gtable_0.3.6       farver_2.1.2       vctrs_0.7.2       
+[13] grid_4.5.3         S7_0.2.1           lifecycle_1.0.5    rlang_1.1.7       
