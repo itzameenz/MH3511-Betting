@@ -1,19 +1,4 @@
-# R
 .Rhistory
 .RData
-.Ruserdata
-.Renviron
-*.Rout
-
-# RStudio
 .Rproj.user/
-*.Rproj
-
-# OS
 .DS_Store
-Thumbs.db
-desktop.ini
-
-# Secrets / local env (never commit)
-.env
-.env.local
