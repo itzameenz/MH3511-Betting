@@ -1,0 +1,5 @@
+Rows: 2640
+Columns: 44
+Raw numeric analysis columns: 18
+Transformed columns added: 7
+Transformed column names: log_net_worth, log_cpi_country, log_cpi_change_country, log_gross_primary_education_enrollment_country, exp_life_expectancy_country, exp_latitude_country, log_log_net_worth

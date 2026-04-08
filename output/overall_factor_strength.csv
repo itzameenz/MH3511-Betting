@@ -1,0 +1,10 @@
+"variable","family","variance_explained"
+"state","categorical",0.0268594968715624
+"category","categorical",0.0187952007158737
+"industries","categorical",0.0187952007158737
+"tertiary_edu","continuous",0.0132801973355348
+"cpi_country","continuous",0.00496255601331803
+"cpi_change_country","continuous",0.00339645645461027
+"selfMade","categorical",0.00304049318940551
+"gdp_country","continuous",0.00251446047540754
+"life_expectancy","continuous",0.00123640347423032

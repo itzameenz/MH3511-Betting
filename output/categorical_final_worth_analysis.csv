@@ -1,0 +1,5 @@
+"variable","test","n","groups","statistic","p_value","variance_explained","highest_group","highest_group_mean_log_final_worth"
+"category","one-way ANOVA",2640,18,2.95441207842438,4.39019278090584e-05,0.0187952007158737,"Metals & Mining",8.16456312246348
+"state","one-way ANOVA",2640,11,7.25626125398438,2.09128100158097e-11,0.0268594968715624,"Texas",8.29448441397261
+"industries","one-way ANOVA",2640,18,2.95441207842438,4.39019278090584e-05,0.0187952007158737,"Metals & Mining",8.16456312246348
+"selfMade","t-test equivalent (2-level ANOVA)",2640,2,8.0452826607887,0.00459703116322505,0.00304049318940551,"FALSE",7.99736727596704

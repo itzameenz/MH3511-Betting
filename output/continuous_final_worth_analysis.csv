@@ -1,0 +1,6 @@
+"variable","test","n","correlation_with_log_final_worth","slope","p_value","variance_explained"
+"cpi_country","Pearson correlation + simple linear regression",2456,-0.0704454115845578,-0.00220311572458408,0.000476374932583918,0.00496255601331803
+"gdp_country","Pearson correlation + simple linear regression",2476,0.0501443962513002,4.33722597543996e-15,0.0125791787111746,0.00251446047540754
+"tertiary_edu","Pearson correlation + simple linear regression",2458,0.115239738525977,0.00446860187997176,1.00684130713743e-08,0.0132801973355348
+"cpi_change_country","Pearson correlation + simple linear regression",2456,0.0582791253761608,0.0133049096043881,0.00386241677921654,0.00339645645461027
+"life_expectancy","Pearson correlation + simple linear regression",2458,0.0351625294060318,0.00780177255646929,0.0813427220457845,0.00123640347423032

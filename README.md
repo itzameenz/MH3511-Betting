@@ -1,19 +1,19 @@
-# Betting Odds Data Project
+# Billionaires Analysis Repo
 
-This repository contains the raw betting odds dataset, a cleaned dataset, and the R script used to generate the cleaned output.
+This repo now uses the provided billionaire dataset as the only source data.
 
-## Project structure
+## Files
 
-- `data/raw/closing_odds.csv` - raw input dataset
-- `data/cleaned/cleaned_betting_data.csv` - cleaned output dataset
-- `data_cleaning/cleaning_data.R` - cleaning script
+- `data/raw/Billionaires Statistics Dataset.csv`: original dataset copied from Downloads
+- `scripts/process_billionaires_data.R`: analysis pipeline
+- `data/processed/billionaires_analysis_ready.csv`: cleaned dataset with derived analysis columns
+- `output/histograms/raw/`: histograms for numeric analysis columns
+- `output/histograms/transformed/`: histograms for skew-reduced transformed columns
+- `output/skew_summary.csv`: raw skewness, chosen transform, and transformed skewness
+- `output/correlation_to_net_worth.csv`: correlations against `net_worth`
 
-## Run the cleaning script
+## Run
 
-From the project root in R:
-
-```r
-source("data_cleaning/cleaning_data.R")
+```sh
+Rscript scripts/process_billionaires_data.R
 ```
-
-The script reads `data/raw/closing_odds.csv` and writes `data/cleaned/cleaned_betting_data.csv`.
