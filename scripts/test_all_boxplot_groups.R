@@ -7,8 +7,12 @@ if (!file.exists(data_path)) {
 }
 
 coerce_numeric_like <- function(x) {
-  if (is.logical(x)) return(as.integer(x))
-  if (is.numeric(x) || is.integer(x)) return(as.numeric(x))
+  if (is.logical(x)) {
+    return(as.integer(x))
+  }
+  if (is.numeric(x) || is.integer(x)) {
+    return(as.numeric(x))
+  }
   y <- gsub("[$, ]", "", x)
   y[y == ""] <- NA
   suppressWarnings(as.numeric(y))
@@ -154,10 +158,10 @@ run_group_test <- function(df, group_col, response_col, grouping_description, pl
 }
 
 data <- utils::read.csv(data_path, stringsAsFactors = FALSE)
-response_col <- if ("log_log_net_worth" %in% names(data)) {
-  "log_log_net_worth"
-} else {
+response_col <- if ("log_net_worth" %in% names(data)) {
   "log_net_worth"
+} else {
+  "log_log_net_worth"
 }
 data[[response_col]] <- coerce_numeric_like(data[[response_col]])
 

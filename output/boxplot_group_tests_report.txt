@@ -1,12 +1,12 @@
 Boxplot Group Mean Tests
-Response variable used across all tests: log_log_net_worth
+Response variable used across all tests: log_net_worth
 Variance decision rule: use Fligner-Killeen; if equal variances hold, use pooled t-test / one-way ANOVA; otherwise use Welch t-test / Welch ANOVA.
 
 ================================================================================
 Grouping: status
 Grouping description: Raw status categories
 Related boxplot: output/boxplots/status_boxplot.png
-Response variable: log_log_net_worth
+Response variable: log_net_worth
 Rows used: 2640
 Groups used: 6
 
@@ -49,7 +49,7 @@ Decision: reject H0.
 Grouping: country_top10
 Grouping description: Top 10 countries + Other + Missing
 Related boxplot: output/boxplots/country_top10_boxplot.png
-Response variable: log_log_net_worth
+Response variable: log_net_worth
 Rows used: 2640
 Groups used: 12
 
@@ -110,7 +110,7 @@ Decision: reject H0.
 Grouping: citizenship_top10
 Grouping description: Top 10 countries of citizenship + Other
 Related boxplot: output/boxplots/country_of_citizenship_top10_boxplot.png
-Response variable: log_log_net_worth
+Response variable: log_net_worth
 Rows used: 2640
 Groups used: 11
 
@@ -168,7 +168,7 @@ Decision: reject H0.
 Grouping: title_top10
 Grouping description: Top 10 titles + Other
 Related boxplot: output/boxplots/title_top10_boxplot.png
-Response variable: log_log_net_worth
+Response variable: log_net_worth
 Rows used: 339
 Groups used: 11
 
@@ -226,7 +226,7 @@ Decision: fail to reject H0.
 Grouping: category
 Grouping description: Raw category field
 Related boxplot: output/boxplots/category_boxplot.png
-Response variable: log_log_net_worth
+Response variable: log_net_worth
 Rows used: 2640
 Groups used: 18
 
@@ -305,7 +305,7 @@ Decision: reject H0.
 Grouping: selfMade
 Grouping description: Binary selfMade field
 Related boxplot: output/boxplots/selfMade_boxplot.png
-Response variable: log_log_net_worth
+Response variable: log_net_worth
 Rows used: 2640
 Groups used: 2
 
@@ -336,7 +336,7 @@ Decision: reject H0.
 Grouping: birthYear_quartile
 Grouping description: Birth year split into quartiles
 Related boxplot: output/boxplots/birthYear_quartile_boxplot.png
-Response variable: log_log_net_worth
+Response variable: log_net_worth
 Rows used: 2564
 Groups used: 4
 
@@ -373,7 +373,7 @@ Decision: reject H0.
 Grouping: age_quartile
 Grouping description: Age split into quartiles
 Related boxplot: output/boxplots/age_quartile_boxplot.png
-Response variable: log_log_net_worth
+Response variable: log_net_worth
 Rows used: 2575
 Groups used: 4
 
