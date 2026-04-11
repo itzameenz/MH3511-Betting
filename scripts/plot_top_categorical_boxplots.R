@@ -75,12 +75,7 @@ plot_boxplot <- function(df, group_col, y_col, title_text, file_name) {
 
 data <- utils::read.csv(data_path, stringsAsFactors = FALSE)
 
-response_col <- if ("log_net_worth" %in% names(data)) {
-  "log_net_worth"
-} else {
-  "log_log_net_worth"
-}
-data[[response_col]] <- coerce_numeric_like(data[[response_col]])
+response_col <- "log_net_worth"
 
 data$country_top10 <- group_top_levels(data$country, top_n = 10, include_missing = TRUE)
 data$citizenship_top10 <- group_top_levels(data$countryOfCitizenship, top_n = 10, include_missing = FALSE)
