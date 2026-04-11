@@ -1,7 +1,6 @@
 # Further Analysis of Significant Categories
 
 # Load required libraries
-library(dplyr)
 library(ggplot2)
 
 # Load the processed dataset

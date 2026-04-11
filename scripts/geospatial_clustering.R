@@ -1,9 +1,6 @@
 # Load required libraries
-library(ggplot2)
-library(dplyr)
-library(ggmap)
-library(cluster)
-library(factoextra)
+
+
 
 # Load the processed dataset
 data_path <- file.path("data", "processed", "billionaires_analysis_ready.csv")

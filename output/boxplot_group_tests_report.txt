@@ -19,29 +19,29 @@ Split Family Fortune = 79
 R = 65
 
 Group means:
-U = 2.103543
-D = 2.062628
-Split Family Fortune = 2.059674
-E = 2.012569
-N = 2.010489
-R = 1.980179
+U = 8.233683
+D = 7.906855
+Split Family Fortune = 7.881139
+E = 7.496434
+N = 7.488693
+R = 7.253354
 
 Group variances:
-D = 0.009844
-U = 0.009160
-E = 0.003642
-N = 0.005670
-Split Family Fortune = 0.009451
-R = 0.002540
+D = 0.691063
+U = 0.672640
+E = 0.220442
+N = 0.350370
+Split Family Fortune = 0.640524
+R = 0.145231
 
 Equality-of-variance checks:
-Bartlett test: K-squared = 133.1424 , df = 5 , p-value = 5.12317e-27
-Fligner-Killeen test: chi-squared = 108.9579 , df = 5 , p-value = 6.80304e-22
+Bartlett test: K-squared = 177.1269 , df = 5 , p-value = 2.19765e-36
+Fligner-Killeen test: chi-squared = 126.1339 , df = 5 , p-value = 1.57301e-25
 Primary variance test used for decision: Fligner-Killeen test
 Equal variances assumed: No
 
 Chosen mean-comparison test: Welch ANOVA
-Test statistic =109.9564, numerator df = 5.0000, denominator df =336.1564, p-value =1.49022e-68
+Test statistic =108.6210, numerator df = 5.0000, denominator df =341.0161, p-value =2.33452e-68
 Null hypothesis: all group means are equal.
 Decision: reject H0.
 
@@ -68,41 +68,41 @@ Singapore = 46
 Missing = 38
 
 Group means:
-Switzerland = 2.095253
-United States = 2.089183
-Hong Kong = 2.082027
-United Kingdom = 2.074836
-Germany = 2.070880
-Russia = 2.067059
-Other = 2.058239
-India = 2.051621
-Italy = 2.048751
-Singapore = 2.043902
-China = 2.043197
-Missing = 2.022549
+Switzerland = 8.164781
+United States = 8.121761
+Hong Kong = 8.057339
+United Kingdom = 8.005886
+Germany = 7.973241
+Russia = 7.945582
+Other = 7.870342
+India = 7.814865
+Italy = 7.779779
+China = 7.748505
+Singapore = 7.747732
+Missing = 7.576955
 
 Group variances:
-United States = 0.010399
-Other = 0.009399
-China = 0.008323
-India = 0.008512
-Germany = 0.010288
-United Kingdom = 0.010619
-Russia = 0.010963
-Switzerland = 0.009077
-Hong Kong = 0.009016
-Italy = 0.005634
-Singapore = 0.007009
-Missing = 0.005115
+United States = 0.761116
+Other = 0.651344
+China = 0.557492
+India = 0.591612
+Germany = 0.703107
+United Kingdom = 0.720142
+Russia = 0.750925
+Switzerland = 0.647591
+Hong Kong = 0.634037
+Italy = 0.345674
+Singapore = 0.447582
+Missing = 0.321223
 
 Equality-of-variance checks:
-Bartlett test: K-squared = 23.8157 , df = 11 , p-value = 0.0135331
-Fligner-Killeen test: chi-squared = 27.3827 , df = 11 , p-value = 0.00402105
+Bartlett test: K-squared = 36.8211 , df = 11 , p-value = 0.000123462
+Fligner-Killeen test: chi-squared = 35.8821 , df = 11 , p-value = 0.000177046
 Primary variance test used for decision: Fligner-Killeen test
 Equal variances assumed: No
 
 Chosen mean-comparison test: Welch ANOVA
-Test statistic =9.6622, numerator df = 11.0000, denominator df =360.9380, p-value =2.39442e-15
+Test statistic =9.2184, numerator df = 11.0000, denominator df =361.8744, p-value =1.34342e-14
 Null hypothesis: all group means are equal.
 Decision: reject H0.
 
@@ -128,39 +128,39 @@ Taiwan = 52
 United Kingdom = 52
 
 Group means:
-Hong Kong = 2.089905
-United States = 2.089592
-Germany = 2.072021
-United Kingdom = 2.070927
-Russia = 2.067120
-Other = 2.061103
-Canada = 2.060416
-Italy = 2.053962
-India = 2.052668
-China = 2.040474
-Taiwan = 2.038480
+Hong Kong = 8.126442
+United States = 8.125291
+Germany = 7.983139
+United Kingdom = 7.964630
+Russia = 7.948360
+Other = 7.893317
+Canada = 7.879527
+Italy = 7.824131
+India = 7.822752
+China = 7.726713
+Taiwan = 7.698563
 
 Group variances:
-United States = 0.010449
-Other = 0.009519
-China = 0.008140
-India = 0.008443
-Germany = 0.010454
-Russia = 0.011496
-Hong Kong = 0.010334
-Italy = 0.006456
-Canada = 0.007599
-Taiwan = 0.005142
-United Kingdom = 0.008232
+United States = 0.765421
+Other = 0.658426
+China = 0.543107
+India = 0.586075
+Germany = 0.718733
+Russia = 0.787577
+Hong Kong = 0.737382
+Italy = 0.425687
+Canada = 0.518689
+Taiwan = 0.316837
+United Kingdom = 0.541745
 
 Equality-of-variance checks:
-Bartlett test: K-squared = 26.5908 , df = 10 , p-value = 0.00302178
-Fligner-Killeen test: chi-squared = 28.4075 , df = 10 , p-value = 0.00155291
+Bartlett test: K-squared = 39.4685 , df = 10 , p-value = 2.10127e-05
+Fligner-Killeen test: chi-squared = 36.6993 , df = 10 , p-value = 6.37859e-05
 Primary variance test used for decision: Fligner-Killeen test
 Equal variances assumed: No
 
 Chosen mean-comparison test: Welch ANOVA
-Test statistic =9.4391, numerator df = 10.0000, denominator df =378.4082, p-value =4.89248e-14
+Test statistic =9.0220, numerator df = 10.0000, denominator df =379.2748, p-value =2.25417e-13
 Null hypothesis: all group means are equal.
 Decision: reject H0.
 
@@ -186,39 +186,39 @@ Owner = 6
 Director = 5
 
 Group means:
-Chairman and CEO = 2.190308
-Founder and Chairman = 2.166846
-Owner = 2.160345
-Chairman = 2.148757
-Founder and CEO = 2.144398
-CEO = 2.130608
-Other = 2.117114
-Founder = 2.116990
-Cofounder = 2.096753
-Investor = 2.095607
-Director = 2.054168
+Chairman and CEO = 9.026922
+Founder and Chairman = 8.801959
+Owner = 8.754638
+Chairman = 8.623010
+Founder and CEO = 8.551478
+CEO = 8.522023
+Other = 8.376382
+Founder = 8.362582
+Cofounder = 8.182070
+Investor = 8.155731
+Director = 7.927924
 
 Group variances:
-Other = 0.016220
-Investor = 0.006371
-Founder = 0.013803
-CEO = 0.023854
-Chairman and CEO = 0.020361
-Chairman = 0.011622
-Cofounder = 0.010439
-Founder and CEO = 0.004031
-Founder and Chairman = 0.018493
-Owner = 0.021274
-Director = 0.037625
+Other = 1.255999
+Investor = 0.424494
+Founder = 1.002090
+CEO = 1.989544
+Chairman and CEO = 1.713298
+Chairman = 0.914489
+Cofounder = 0.786840
+Founder and CEO = 0.283984
+Founder and Chairman = 1.683042
+Owner = 1.850688
+Director = 2.950927
 
 Equality-of-variance checks:
-Bartlett test: K-squared = 25.0477 , df = 10 , p-value = 0.00525583
-Fligner-Killeen test: chi-squared = 15.8939 , df = 10 , p-value = 0.102709
+Bartlett test: K-squared = 32.3586 , df = 10 , p-value = 0.00034889
+Fligner-Killeen test: chi-squared = 15.8185 , df = 10 , p-value = 0.104947
 Primary variance test used for decision: Fligner-Killeen test
 Equal variances assumed: Yes
 
 Chosen mean-comparison test: One-way ANOVA
-Test statistic =1.6377, numerator df = 10.0000, denominator df =328.0000, p-value =0.09473
+Test statistic =1.6320, numerator df = 10.0000, denominator df =328.0000, p-value =0.0962487
 Null hypothesis: all group means are equal.
 Decision: fail to reject H0.
 
@@ -251,53 +251,53 @@ Telecom = 31
 Gambling & Casinos = 25
 
 Group means:
-Metals & Mining = 2.093197
-Logistics = 2.089412
-Fashion & Retail = 2.079849
-Automotive = 2.078442
-Energy = 2.077853
-Gambling & Casinos = 2.075598
-Telecom = 2.075347
-Finance & Investments = 2.071943
-Technology = 2.071319
-Food & Beverage = 2.070162
-Diversified = 2.066266
-Media & Entertainment = 2.061777
-Sports = 2.059605
-Real Estate = 2.058759
-Service = 2.054210
-Healthcare = 2.046986
-Manufacturing = 2.044242
-Construction & Engineering = 2.037322
+Metals & Mining = 8.164563
+Logistics = 8.133269
+Fashion & Retail = 8.052992
+Automotive = 8.047080
+Energy = 8.029207
+Telecom = 8.018286
+Gambling & Casinos = 8.012642
+Technology = 7.984711
+Finance & Investments = 7.976149
+Food & Beverage = 7.964865
+Diversified = 7.934632
+Media & Entertainment = 7.897051
+Sports = 7.872877
+Real Estate = 7.863535
+Service = 7.829153
+Healthcare = 7.774422
+Manufacturing = 7.752653
+Construction & Engineering = 7.689109
 
 Group variances:
-Finance & Investments = 0.008865
-Manufacturing = 0.007433
-Technology = 0.011926
-Fashion & Retail = 0.011943
-Food & Beverage = 0.009535
-Healthcare = 0.007578
-Real Estate = 0.006857
-Diversified = 0.009583
-Energy = 0.010409
-Media & Entertainment = 0.009161
-Metals & Mining = 0.013040
-Automotive = 0.013319
-Service = 0.007338
-Construction & Engineering = 0.004981
-Logistics = 0.013110
-Sports = 0.007732
-Telecom = 0.012631
-Gambling & Casinos = 0.011038
+Finance & Investments = 0.602353
+Manufacturing = 0.480715
+Technology = 0.872375
+Fashion & Retail = 0.880068
+Food & Beverage = 0.660086
+Healthcare = 0.489764
+Real Estate = 0.450307
+Diversified = 0.688302
+Energy = 0.704088
+Media & Entertainment = 0.648120
+Metals & Mining = 0.942555
+Automotive = 0.992124
+Service = 0.467670
+Construction & Engineering = 0.312880
+Logistics = 0.936820
+Sports = 0.500035
+Telecom = 0.930895
+Gambling & Casinos = 0.762542
 
 Equality-of-variance checks:
-Bartlett test: K-squared = 62.5771 , df = 17 , p-value = 3.92265e-07
-Fligner-Killeen test: chi-squared = 32.7990 , df = 17 , p-value = 0.0119511
+Bartlett test: K-squared = 92.8458 , df = 17 , p-value = 1.84752e-12
+Fligner-Killeen test: chi-squared = 36.5910 , df = 17 , p-value = 0.00382171
 Primary variance test used for decision: Fligner-Killeen test
 Equal variances assumed: No
 
 Chosen mean-comparison test: Welch ANOVA
-Test statistic =3.0769, numerator df = 17.0000, denominator df =453.4597, p-value =3.77598e-05
+Test statistic =3.2317, numerator df = 17.0000, denominator df =453.5524, p-value =1.59133e-05
 Null hypothesis: all group means are equal.
 Decision: reject H0.
 
@@ -314,21 +314,21 @@ TRUE = 1812
 FALSE = 828
 
 Group means:
-FALSE = 2.074049
-TRUE = 2.061909
+FALSE = 7.997367
+TRUE = 7.899828
 
 Group variances:
-TRUE = 0.009542
-FALSE = 0.009833
+TRUE = 0.662431
+FALSE = 0.693119
 
 Equality-of-variance checks:
-Bartlett test: K-squared = 0.2572 , df = 1 , p-value = 0.612032
-Fligner-Killeen test: chi-squared = 0.4663 , df = 1 , p-value = 0.494675
+Bartlett test: K-squared = 0.5851 , df = 1 , p-value = 0.44431
+Fligner-Killeen test: chi-squared = 1.4224 , df = 1 , p-value = 0.233006
 Primary variance test used for decision: Fligner-Killeen test
 Equal variances assumed: Yes
 
 Chosen mean-comparison test: Student two-sample t-test
-Test statistic =2.9487, denominator df =2638.0000, p-value =0.00321918
+Test statistic =2.8364, denominator df =2638.0000, p-value =0.00459703
 Null hypothesis: the two group means are equal.
 Decision: reject H0.
 
@@ -347,25 +347,25 @@ BirthYear_Q4 = 628
 BirthYear_Q2 = 616
 
 Group means:
-BirthYear_Q1 = 2.084244
-BirthYear_Q2 = 2.072032
-BirthYear_Q3 = 2.060678
-BirthYear_Q4 = 2.049596
+BirthYear_Q1 = 8.082503
+BirthYear_Q2 = 7.981706
+BirthYear_Q3 = 7.885938
+BirthYear_Q4 = 7.801522
 
 Group variances:
-BirthYear_Q1 = 0.010608
-BirthYear_Q3 = 0.008587
-BirthYear_Q4 = 0.009108
-BirthYear_Q2 = 0.009918
+BirthYear_Q1 = 0.762009
+BirthYear_Q3 = 0.581001
+BirthYear_Q4 = 0.624768
+BirthYear_Q2 = 0.703034
 
 Equality-of-variance checks:
-Bartlett test: K-squared = 8.4921 , df = 3 , p-value = 0.036865
-Fligner-Killeen test: chi-squared = 6.8033 , df = 3 , p-value = 0.0784376
+Bartlett test: K-squared = 14.2637 , df = 3 , p-value = 0.00256735
+Fligner-Killeen test: chi-squared = 10.3832 , df = 3 , p-value = 0.0155748
 Primary variance test used for decision: Fligner-Killeen test
-Equal variances assumed: Yes
+Equal variances assumed: No
 
-Chosen mean-comparison test: One-way ANOVA
-Test statistic =15.1797, numerator df = 3.0000, denominator df =2560.0000, p-value =8.6085e-10
+Chosen mean-comparison test: Welch ANOVA
+Test statistic =14.0163, numerator df = 3.0000, denominator df =1419.1704, p-value =5.24262e-09
 Null hypothesis: all group means are equal.
 Decision: reject H0.
 
@@ -384,25 +384,25 @@ Age_Q2 = 641
 Age_Q4 = 599
 
 Group means:
-Age_Q4 = 2.085135
-Age_Q3 = 2.071199
-Age_Q2 = 2.062463
-Age_Q1 = 2.050642
+Age_Q4 = 8.090444
+Age_Q3 = 7.973527
+Age_Q2 = 7.902336
+Age_Q1 = 7.808963
 
 Group variances:
-Age_Q1 = 0.008943
-Age_Q3 = 0.009563
-Age_Q2 = 0.009126
-Age_Q4 = 0.010785
+Age_Q1 = 0.611574
+Age_Q3 = 0.672243
+Age_Q2 = 0.626535
+Age_Q4 = 0.776938
 
 Equality-of-variance checks:
-Bartlett test: K-squared = 6.6649 , df = 3 , p-value = 0.0833796
-Fligner-Killeen test: chi-squared = 7.2470 , df = 3 , p-value = 0.0644279
+Bartlett test: K-squared = 11.0180 , df = 3 , p-value = 0.011629
+Fligner-Killeen test: chi-squared = 11.7016 , df = 3 , p-value = 0.00847842
 Primary variance test used for decision: Fligner-Killeen test
-Equal variances assumed: Yes
+Equal variances assumed: No
 
-Chosen mean-comparison test: One-way ANOVA
-Test statistic =14.0080, numerator df = 3.0000, denominator df =2571.0000, p-value =4.66299e-09
+Chosen mean-comparison test: Welch ANOVA
+Test statistic =12.8725, numerator df = 3.0000, denominator df =1417.6867, p-value =2.67325e-08
 Null hypothesis: all group means are equal.
 Decision: reject H0.
 
