@@ -232,6 +232,10 @@ correlation_summary$abs_correlation <- abs(correlation_summary$correlation_to_lo
 correlation_summary <- correlation_summary[order(-correlation_summary$abs_correlation), ]
 row.names(correlation_summary) <- NULL
 
+cols_to_drop <- c("firstName", "lastName", "birthDate", "birthYear", "birthMonth", "birthDay",
+                  "log_log_net_worth", "selfMade_numeric", "status", "date")
+clean_data <- clean_data[, setdiff(names(clean_data), cols_to_drop)]
+
 utils::write.csv(clean_data, clean_path, row.names = FALSE, na = "")
 utils::write.csv(skew_summary, skew_summary_path, row.names = FALSE, na = "")
 utils::write.csv(correlation_summary, correlation_path, row.names = FALSE, na = "")

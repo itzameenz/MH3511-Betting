@@ -60,10 +60,9 @@ run_group_test <- function(df, group_col, response_col, grouping_description, pl
     names(group_counts)
   )
 
-  bartlett_result <- stats::bartlett.test(y ~ grp, data = test_df)
-  fligner_result <- stats::fligner.test(y ~ grp, data = test_df)
-  equal_variances <- fligner_result$p.value >= 0.05
-  variance_choice <- "Fligner-Killeen test"
+  variance_test <- stats::var.test(y ~ grp, data = test_df)
+  equal_variances <- variance_test$p.value >= 0.05
+  variance_choice <- "F-test for equality of variances"
 
   if (nlevels(test_df$grp) == 2L) {
     if (equal_variances) {
@@ -123,20 +122,14 @@ run_group_test <- function(df, group_col, response_col, grouping_description, pl
     "",
     "Equality-of-variance checks:",
     paste(
-      "Bartlett test: K-squared =",
-      sprintf("%.4f", unname(bartlett_result$statistic)),
-      ", df =",
-      unname(bartlett_result$parameter),
+      "F-test: F =",
+      sprintf("%.4f", unname(variance_test$statistic)),
+      ", numerator df =",
+      unname(variance_test$parameter[1]),
+      ", denominator df =",
+      unname(variance_test$parameter[2]),
       ", p-value =",
-      sprintf("%.6g", bartlett_result$p.value)
-    ),
-    paste(
-      "Fligner-Killeen test: chi-squared =",
-      sprintf("%.4f", unname(fligner_result$statistic)),
-      ", df =",
-      unname(fligner_result$parameter),
-      ", p-value =",
-      sprintf("%.6g", fligner_result$p.value)
+      sprintf("%.6g", variance_test$p.value)
     ),
     paste("Primary variance test used for decision:", variance_choice),
     paste("Equal variances assumed:", if (equal_variances) "Yes" else "No"),

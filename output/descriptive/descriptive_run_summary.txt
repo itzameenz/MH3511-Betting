@@ -1,9 +1,9 @@
 Rows: 2640
-Columns: 44
-Numeric-like columns summarized: 26
-Categorical columns summarized: 6
-High-cardinality categorical columns summarized: 10
-Date-like columns summarized: 2
+Columns: 34
+Numeric-like columns summarized: 21
+Categorical columns summarized: 5
+High-cardinality categorical columns summarized: 8
+Date-like columns summarized: 0
 Manifest: output/descriptive/column_manifest.csv
 Numeric summary: output/descriptive/numeric_summary.csv
 Categorical counts: output/descriptive/categorical_level_counts.csv

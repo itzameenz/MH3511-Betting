@@ -1,6 +1,8 @@
 # Load required libraries
-
-
+library(ggplot2)
+library(maps)
+library(dplyr)
+library(cluster)
 
 # Load the processed dataset
 data_path <- file.path("data", "processed", "billionaires_analysis_ready.csv")
